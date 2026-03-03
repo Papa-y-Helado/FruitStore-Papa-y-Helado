@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>FruitStore | Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-grid.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-utilities.css">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap-utilities.rtl.css">
+
+        <link rel="stylesheet" href="style/bootstrap/sweetalert2/sweetalert2.min.css">
+
+        <style>
+            :root{
+                --g1:#27ae60;
+                --g2:#11998e;
+                --bg:#f4f7f6;
+                --card:#fff;
+                --muted:#6c757d;
+                --radius:12px;
+                font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            }
+            *{
+                box-sizing:border-box
+            }
+            body{
+                margin:0;
+                min-height:100vh;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:var(--bg);
+                padding:20px;
+            }
+            .card{
+                width:100%;
+                max-width:420px;
+                background:var(--card);
+                border-radius:18px;
+                box-shadow:0 10px 30px rgba(0,0,0,0.08);
+                overflow:hidden;
+            }
+            .card-header{
+                padding:28px;
+                text-align:center;
+                color:#fff;
+                background:linear-gradient(135deg,var(--g1),var(--g2));
+            }
+            .brand{
+                font-size:36px;
+                margin-bottom:8px;
+                display:block;
+            }
+            .card-body{
+                padding:20px;
+            }
+            label{
+                display:block;
+                font-size:0.85rem;
+                color:var(--muted);
+                margin-bottom:6px;
+                font-weight:600;
+            }
+            input{
+                width:100%;
+                padding:10px 12px;
+                border-radius:10px;
+                border:1px solid #e9ecef;
+                background:#fbfcfc;
+                font-size:1rem;
+                margin-bottom:14px;
+            }
+            .input-row{
+                position:relative;
+            }
+            .toggle-btn{
+                position:absolute;
+                right:8px;
+                top:50%;
+                transform:translateY(-50%);
+                background:transparent;
+                border:none;
+                cursor:pointer;
+                color:var(--muted);
+                padding:6px;
+                border-radius:8px;
+            }
+            .btn{
+                width:100%;
+                padding:12px;
+                border-radius:10px;
+                border:none;
+                color:#fff;
+                background:linear-gradient(90deg,var(--g1),var(--g2));
+                font-weight:700;
+                cursor:pointer;
+            }
+            .small{
+                font-size:0.85rem;
+                color:var(--muted);
+                text-align:center;
+                margin-top:12px;
+            }
+            @media (max-width:420px){
+                .card{
+                    border-radius:14px
+                }
+                .card-header{
+                    padding:20px
+                }
+                .card-body{
+                    padding:16px
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card" role="main" aria-labelledby="title" id="mainContainer">
+            <header class="card-header">
+                <span class="brand" aria-hidden="true">🍏</span>
+                <h1 id="title" style="margin:0;font-size:1.25rem;">FruitStore</h1>
+                <p style="margin:6px 0 0;opacity:.95;">Inicio de sesión</p>
+            </header>
+
+            <div class="card-body" aria-label="Formulario de inicio de sesión" id="loginSection">
+                <div id="loginForm" role="form" aria-labelledby="title" aria-describedby="msg">
+                    <div>
+                        <label for="txtUsuario">Usuario</label>
+                        <input
+                            type="text"
+                            id="txtUsuario"
+                            name="usuario"
+                            placeholder="Ingrese usuario"
+                            required
+                            minlength="3"
+                            autocomplete="username"
+                            />
+                    </div>
+
+                    <div class="input-row">
+                        <label for="txtContrasenia">Contraseña</label>
+                        <input
+                            type="password"
+                            id="txtContrasenia"
+                            name="contrasenia"
+                            placeholder="••••••••"
+                            required
+                            minlength="6"
+                            autocomplete="current-password"
+                            />
+                    </div>
+
+                    <div>
+                        <button
+                            type="button"
+                            class="btn btn-fruit w-100"
+                            onclick="login();"
+                            id="btnLogin"
+                            >
+                            INICIAR SESIÓN
+                        </button>
+                    </div>
+
+                    <div
+                        class="small"
+                        id="msg"
+                        role="status"
+                        aria-live="polite"
+                        style="display:none;color:#d9534f;"
+                        ></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="style/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+        <script src="style/bootstrap/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <script src="style/bootstrap/sweetalert2/sweetalert2.all.min.js"></script>
+
+        <script src="js/fruitstore_sec.js"></script>
+    </body>
+</html>

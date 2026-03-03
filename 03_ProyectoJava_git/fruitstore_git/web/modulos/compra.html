@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>FruitStore - Compras</title>
+        <link rel="stylesheet" href="../style/bootstrap/bootstrap/css/bootstrap.min.css">
+    </head>
+    <body>
+        <main class="container mt-4">
+            <div class="card shadow mb-4">
+                <div class="card-header bg-success text-white">
+                    <h4>Registro de Compras</h4>
+                </div>
+                <div class="card-body">
+                    <form id="formCompra">
+                        <input type="hidden" id="txtIdCompra" value="0">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Proveedor</label>
+                                <select id="selectProveedor" class="form-select"></select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Fecha</label>
+                                <input type="date" id="txtFechaCompra" class="form-control">
+                            </div>
+                        </div>
+
+                        <!--
+                                                <hr>
+                                                <h5>Detalles de la compra</h5>
+                                                <table class="table table-sm">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Producto</th>
+                                                            <th>Kilos</th>
+                                                            <th>Precio</th>
+                                                            <th>Descuento</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tbodyDetalles"></tbody>
+                                                </table>
+                        -->
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-success" onclick="guardarCompra()">Guardar</button>
+                            <!-- <button type="button" class="btn btn-secondary" onclick="agregarDetalle()">Agregar</button> -->
+                            <button type="button" class="btn btn-danger" onclick="eliminarCompra()">Eliminar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5>Historial de Compras</h5>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Fecha</th>
+                                <th>Proveedor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyCompras"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <script src="../style/bootstrap/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../style/bootstrap/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="../js/compra.js"></script>
+    </body>
+</html>
