@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>FruitStore - Panel Principal</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style/bootstrap/bootstrap/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="style/bootstrap/sweetalert2/sweetalert2.min.css">
+        <style>
+            #fondoFruitStore {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('../img/47407.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                opacity: 0.8;
+                z-index: -1;
+            }
+            .card {
+                background-color: rgba(255,255,255,0.9);
+                border-radius: 12px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+            .menu-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important;
+                cursor: pointer;
+
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+            .card-header {
+                border-radius: 12px 12px 0 0;
+            }
+            .icon-circle {
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #27ae60 0%, #11998e 100%);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+            a, a:hover, a:focus, a:active {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Aquí se carga el navbar dinámicamente -->
+        <div id="navbarContainer"></div>
+
+        <div class="container mt-5">
+            <div class="row text-center mb-4">
+                <div class="col-12">
+                    <h1 class="text-dark bg-white d-inline-block px-4 py-2 rounded-pill shadow-sm">
+                        🍎🍇 Bienvenidos a FruitStore 🍒🍑
+                    </h1>
+                    <h4>
+                        Selecciona un apartado para continuar
+                    </h4>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-6 g-4">
+                <div class="col">
+
+                    <a href="javascript:void(0)" onclick="irACategorias()">
+                        <div class="card h-100 shadow menu-card border-0">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="icon-circle text-white">📁</div>
+                                <h5 class="card-title text-success">Categorías</h5>
+                                <p class="card-text text-muted small text-center">Administra los grupos y categorías de tus productos.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="javascript:void(0)" onclick="irACompras()">
+                        <div class="card h-100 shadow menu-card border-0">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="icon-circle text-white">🛒</div>
+                                <h5 class="card-title text-success">Compras</h5>
+                                <p class="card-text text-muted small text-center">Registra compras a proveedores y controla inventario.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="javascript:void(0)" onclick="irAProductos()">
+                        <div class="card h-100 shadow menu-card border-0">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="icon-circle text-white">📦</div>
+                                <h5 class="card-title text-success">Productos</h5>
+                                <p class="card-text text-muted small text-center">Gestiona el catálogo, precios y existencias.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="javascript:void(0)" onclick="irAProveedores()">
+                        <div class="card h-100 shadow menu-card border-0">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="icon-circle text-white">🏭</div>
+                                <h5 class="card-title text-success">Proveedores</h5>
+                                <p class="card-text text-muted small text-center">Administra la información de tus proveedores.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="javascript:void(0)" onclick="irAVendedores()">
+                        <div class="card h-100 shadow menu-card border-0">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="icon-circle text-white">👤</div>
+                                <h5 class="card-title text-success">Vendedores</h5>
+                                <p class="card-text text-muted small text-center">Consulta y modifica la información de tu personal.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="javascript:void(0)" onclick="irAVentas()">
+                        <div class="card h-100 shadow menu-card border-0">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <div class="icon-circle text-white">💰</div>
+                                <h5 class="card-title text-success">Ventas</h5>
+                                <p class="card-text text-muted small text-center">Registra nuevas ventas y revisa el historial.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor donde se cargan los módulos -->
+        <div id="contenedorPrincipal"></div>
+
+        <script src="../style/bootstrap/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../style/bootstrap/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="../js/navegacion.js"></script>
+        <script src="../js/categoria.js"></script>
+        <script src="../js/compra.js"></script>
+    </body>
+</html>
